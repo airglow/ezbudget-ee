@@ -10,6 +10,15 @@
     </data-source>
 
     <servlet>
+        <servlet-name>H2Console</servlet-name>
+        <servlet-class>org.h2.server.web.JakartaWebServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>H2Console</servlet-name>
+        <url-pattern>/h2/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>jakarta.ws.rs.core.Application</servlet-name>
     </servlet>
     <servlet-mapping>
