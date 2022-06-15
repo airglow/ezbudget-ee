@@ -48,3 +48,14 @@ Actions handled by a `Controller` as a template for all controllers:
 </tr>
 </tbody>
 </table>
+
+
+## Project Structure
+
+These are the layers used in this project structure:
+
+──── **Postman Client** (_GET, POST, ..._)  
+&emsp;&emsp;&emsp;└─── **Controller** (_API Layer_)   
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─── **Service** (_Business Logic_)  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─── **DAO/Repository** (_Persistence Logic_)  
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─── **Database**
