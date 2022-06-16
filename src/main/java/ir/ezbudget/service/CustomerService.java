@@ -19,6 +19,10 @@ public class CustomerService {
 
         Customer customer = entityManager.find(Customer.class, id);
 
+        if (customer == null) {
+            throw new EntityNotFoundException();
+        }
+
         return CustomerDto.entityToDto(customer);
     }
 
