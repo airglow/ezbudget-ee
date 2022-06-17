@@ -42,4 +42,15 @@ public class CustomerService {
         return customer.getId();
     }
 
+    public void deleteCustomer(Long id) {
+
+        Customer customer = entityManager.find(Customer.class, id);
+
+        if (customer == null) {
+            throw new EntityNotFoundException();
+        }
+
+        entityManager.remove(customer);
+    }
+
 }

@@ -3,12 +3,7 @@ package ir.ezbudget.controller;
 import ir.ezbudget.dto.CustomerDto;
 import ir.ezbudget.service.CustomerService;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
@@ -47,6 +42,16 @@ public class CustomerController {
         Long customerId = customerService.createCustomer(customerDto);
 
         return Response.ok().entity(customerId).build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response destroy(@PathParam("id") Long id) {
+
+        customerService.deleteCustomer(id);
+
+        return Response.ok().entity(id).build();
     }
 
 }
