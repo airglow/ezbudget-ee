@@ -33,4 +33,13 @@ public class CustomerService {
         return customers.stream().map(CustomerDto::entityToDto).toList();
     }
 
+    public Long createCustomer(CustomerDto customerDao) {
+
+        Customer customer = CustomerDto.dtoToEntity(customerDao);
+
+        entityManager.persist(customer);
+
+        return customer.getId();
+    }
+
 }
