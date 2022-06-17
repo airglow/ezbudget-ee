@@ -24,4 +24,20 @@ public class CustomerTest {
         Assert.assertEquals(Response.Status.OK.getStatusCode(), response.statusCode());
     }
 
+    @Test
+    public void storeCustomer() {
+
+        String url = "http://localhost:8080/ezbudget-1.0-SNAPSHOT/api/customers";
+        HttpResponse<String> response = Util.makePostRequestAndGetResponse(url,
+                "{" +
+                        "    \"code\": \"1\"," +
+                        "    \"firstName\": \"Test1\"," +
+                        "    \"lastName\": \"Test2\"," +
+                        "    \"status\": \"ACTIVE\"" +
+                        "}"
+        );
+
+        Assert.assertEquals(Response.Status.OK.getStatusCode(), response.statusCode());
+    }
+
 }
