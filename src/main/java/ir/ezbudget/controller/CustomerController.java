@@ -21,7 +21,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GET
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response index() {
 
         List<CustomerDto> customers = customerService.allCustomers();
@@ -31,7 +31,7 @@ public class CustomerController {
 
     @GET
     @Path("/{id}")
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response show(@PathParam("id") Long id) {
 
         CustomerDto customer = customerService.findCustomerById(id);
