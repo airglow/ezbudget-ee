@@ -1,6 +1,7 @@
 package ir.ezbudget.entity;
 
 import ir.ezbudget.entity.enums.CustomerStatus;
+import ir.ezbudget.entity.enums.Gender;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
@@ -36,9 +37,9 @@ public class Customer {
 
     private String address;
 
-    private String gender;
-
     private Date createdAt;
+
+    private Gender gender;
 
     private CustomerStatus status;
 

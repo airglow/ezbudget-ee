@@ -4,6 +4,7 @@ import ir.ezbudget.entity.City;
 import ir.ezbudget.entity.Customer;
 import ir.ezbudget.entity.CustomerType;
 import ir.ezbudget.entity.enums.CustomerStatus;
+import ir.ezbudget.entity.enums.Gender;
 import lombok.Data;
 
 import java.util.Date;
@@ -19,8 +20,8 @@ public class CustomerDto {
     private String fax;
     private String email;
     private String address;
-    private String gender;
     private Date createdAt;
+    private Gender gender;
     private CustomerStatus status;
     private CustomerType type;
     private City city;
