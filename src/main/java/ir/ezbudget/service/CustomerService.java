@@ -8,6 +8,8 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.PersistenceContext;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Stateless
 public class CustomerService {
@@ -15,11 +17,16 @@ public class CustomerService {
     @PersistenceContext
     private EntityManager entityManager;
 
+    private static final Logger logger = Logger.getLogger(CustomerService.class.getCanonicalName());
+
     public CustomerDto findCustomerById(Long id) {
 
         Customer customer = entityManager.find(Customer.class, id);
 
         if (customer == null) {
+
+            logger.log(Level.WARNING, "Couldn't find customer with id: {0}", id);
+
             throw new EntityNotFoundException();
         }
 
