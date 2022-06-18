@@ -53,4 +53,18 @@ public class CustomerService {
         entityManager.remove(customer);
     }
 
+    public void updateCustomer(Long id, CustomerDto customerDto) {
+
+        Customer currentCustomer = entityManager.find(Customer.class, id);
+
+        if (currentCustomer == null) {
+            throw new EntityNotFoundException();
+        }
+
+        Customer customer = CustomerDto.dtoToEntity(customerDto);
+        customer.setId(currentCustomer.getId());
+
+        entityManager.merge(customer);
+    }
+
 }

@@ -51,7 +51,18 @@ public class CustomerController {
 
         customerService.deleteCustomer(id);
 
-        return Response.ok().entity(id).build();
+        return Response.ok().build();
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response update(@PathParam("id") Long id, CustomerDto customerDto) {
+
+        customerService.updateCustomer(id, customerDto);
+
+        return Response.ok().build();
     }
 
 }
